@@ -1,0 +1,241 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Jim Appay | Développeur Web Freelance à Avignon{% endblock %}
+{% block description %}Je suis un développeur web Freelance basé à Avignon dans le 84. Vous avez besoin d'un site internet ? Je développe sur mesure votre projet web.{% endblock %}
+
+{% block body %}
+    <header class="masthead d-flex parallax-window" data-parallax="scroll" data-image-src="img/bg-top.jpg">
+        <div class="container text-center my-auto text-white" data-aos="zoom-in-up">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            {% for message in app.flashes('warning') %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }} <a href="#contact" class="alert-link js-scroll-trigger">Vérifiez les données
+                        &darr;</a>
+                </div>
+            {% endfor %}
+            <h1 class="mb-1">Jim Appay</h1>
+            <h3 class="mb-5">
+                <em id="text-rotator"></em>
+            </h3>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Découvrez mes compétences</a>
+        </div>
+        <div class="overlay"></div>
+    </header>
+
+    <section class="content-section bg-light" id="about">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-12 mx-auto content-section-heading" data-aos="fade-up">
+                    <h3 class="text-secondary mb-0">Présentation</h3>
+                    <h2 class="mb-5">Qui-suis je ?</h2>
+                    <div class="row pb-5">
+                        <div class="col-lg-8 text-justify">
+                            <p>Je m'appelle Jim Appay et j'habite dans le sud de la France à Avignon (84).
+                                Indépendent dans divers
+                                métiers du web depuis quelques années déjà, je suis aujourd'hui <b>développeur
+                                    web freelance</b> full-stack. Je suis autant à l'aise pour développer un site web vitre ou
+                                même une
+                                boutique e-commerce que pour améliorer le backend / frontend d'un projet déjà existant,
+                                voir même créer une application web. Polyvalent, je pourrai m'adapter sur la technologie
+                                de votre choix selon vos préférences. Je travaille essentiellement en télé-travail mais
+                                je suis apte à me déplacer dans vos locaux si nécessaire.</p>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="avatar avatar-neutral"></div>
+                        </div>
+                    </div>
+                </div>
+                {% for category in categories %}
+                    <div class="col-lg-12 mx-auto" data-aos="fade-left">
+                        <h3>{{ category.name }} :</h3>
+                    </div>
+                    <div class="col-md-12 my-4" data-aos="fade-right">
+                        {% for skill in skills %}
+                            {% if category.id == skill.category.id %}
+                                <div class="skillbar" data-percent="95%">
+                                    <div class="skillbar-title">{{ skill.name }}</div>
+                                    <div class="skill-bar-percent">{{ skill.percent }}%</div>
+                                    <div class="skillbar-bar" style="width: {{ skill.percent }}%;"></div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section bg-primary text-white text-center" id="services">
+        <div class="container" data-aos="slide-up">
+            <div class="content-section-heading">
+                <h3 class="text-secondary mb-0">Services</h3>
+                <h2 class="mb-5">Que puis-je faire pour vous ?</h2>
+            </div>
+            <div class="col-lg-10 mx-auto mb-4">
+                Je vous accompagne dans la conception de votre projet web à l'image de votre marque jusqu’à sa mise en
+                production en passant par sa réalisation technique. L'ensemble de mes créations est en Responsive Design, c'est à dire, adaptable sur mobile, tablette et ordinateur.
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+            <span class="service-icon rounded-circle mx-auto mb-3">
+              <i class="fas fa-laptop"></i>
+            </span>
+                    <h4>
+                        <strong>Conception</strong>
+                    </h4>
+                    <p class="text-faded mb-0">
+                        Définir une problématique, proposer des solutions afin d’y répondre</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+            <span class="service-icon rounded-circle mx-auto mb-3">
+              <i class="fas fa-code"></i>
+            </span>
+                    <h4>
+                        <strong>Développement</strong>
+                    </h4>
+                    <p class="text-faded mb-0">
+                        Utiliser les meilleures technologies au service de votre projet</p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+            <span class="service-icon rounded-circle mx-auto mb-3">
+                <i class="fas fa-terminal"></i>
+            </span>
+                    <h4>
+                        <strong>Gestion de projet</strong>
+                    </h4>
+                    <p class="text-faded mb-0">
+                        Organiser les phases du projet pour contrôler les coûts et les délais</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+            <span class="service-icon rounded-circle mx-auto mb-3">
+              <i class="fas fa-cogs"></i>
+            </span>
+                    <h4>
+                        <strong>Maintenance</strong>
+                    </h4>
+                    <p class="text-faded mb-0">Assurer les mises à jour et la sécurité de votre site sur le long terme</p>
+                </div>
+            </div>
+            <div class="container text-center mt-5">
+                <a href="#contact" class="btn btn-xl btn-light js-scroll-trigger" data-aos="fade-up">Demander un
+                    devis!</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="portfolio">
+        <div class="container">
+            <div class="content-section-heading text-center">
+                <h3 class="text-secondary mb-0">Portfolio</h3>
+                <h2 class="mb-5">Les derniers projets réalisés</h2>
+            </div>
+            <div class="row no-gutters">
+                {% set i = 0 %}
+                {% for project in projects %}
+                {% if i==0 %}
+                <div class="col-lg-6" data-aos="fade-left">
+                    {% set i = 1 %}
+                    {% else %}
+                    <div class="col-lg-6" data-aos="fade-right">
+                        {% set i = 0 %}
+                        {% endif %}
+                        <a class="portfolio-item" href="{{ project.url }}" target="_blank">
+              <span class="caption">
+                <span class="caption-content">
+                  <h2>{{ project.name }}</h2>
+                  <p class="mb-0">{{ project.description }}</p>
+                </span>
+              </span>
+                            <img class="img-fluid" src="img/portfolio/{{ project.img }}" alt="">
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+    </section>
+
+    <section id="contact" class="bg-primary text-white">
+        <div class="section-content text-center mb-4 content-section-heading" data-aos="fade-up">
+            <h3 class="text-secondary mb-0">Contact</h3>
+            <h2>Envoyez-moi un message</h2>
+        </div>
+        <div class="contact-section" data-aos="slide-up">
+            <div class="container mb-auto">
+                {{ form_start(form, {'method': 'POST'}) }}
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            {{ form_label(form.name) }}
+                            {{ form_errors(form.name) }}
+                            {{ form_widget(form.name, {'label_attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.email) }}
+                            {{ form_errors(form.email) }}
+                            {{ form_widget(form.email, {'label_attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.phone) }}
+                            {{ form_errors(form.phone) }}
+                            {{ form_widget(form.phone, {'label_attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            {{ form_label(form.message) }}
+                            {{ form_errors(form.message) }}
+                            {{ form_widget(form.message, {'label_attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="py-3">
+                            <input type="submit" value="Envoyer" name="submit" id="submitButton"
+                                   class="btn btn-default submit mx-auto" title="Envoyer votre message!"/>
+                        </div>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+    </section>
+
+    <footer class="footer text-center">
+        <div class="container" data-aos="fade-up">
+            <ul class="list-inline mb-5">
+                <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-white mr-3" href="https://www.linkedin.com/in/jimappay"
+                       target="_blank">
+                        <i class="icon-social-linkedin"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="social-link rounded-circle text-white" href="https://github.com/itsJiamo" target="_blank">
+                        <i class="icon-social-github"></i>
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted small mb-0">Copyright &copy; Jim Appay - N°SIRET 80956571600028</p>
+        </div>
+    </footer>
+
+    <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+{% endblock %}
+{% block javascripts %}
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/custom.min.js"></script>
+    <!-- Paralax -->
+    <script src="js/parallax.min.js"></script>
+    <!-- Fade Up -->
+    <script src="js/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>-
+{% endblock %}

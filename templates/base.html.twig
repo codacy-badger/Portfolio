@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="Shortcut Icon" href="img/favicon.ico" type="image/x-icon"/>
+    <title>{% block title %}{% endblock %}</title>
+    <title>{% block description %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css"
+          integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+          rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="css/custom.min.css" rel="stylesheet">
+    <link href="css/aos.css" rel="stylesheet">
+    <meta property="og:title" content="Jim Appay | Développeur Web Freelance à Avignon{"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://www.jim-appay.fr/"/>
+    <meta property="og:site_name" content="Jim Appay | Développeur Web Freelance à Avignon{"/>
+    <meta property="og:description"
+          content="Je suis un développeur web Freelance basé à Avignon dans le 84. Vous avez besoin d'un site internet ? Je développe sur mesure votre projet web."/>
+    <meta property="og:image" content="https://www.jim-appay.fr/bg-top.jpg"/>
+    <meta property="og:locale" content="fr_FR"/>
+    <meta name="geo.region" content="FR"/>
+    <meta name="geo.placename" content="Avignon"/>
+    <meta name="geo.position" content="43.950001;4.81667"/>
+    <meta name="ICBM" content="43.950001, 4.81667"/>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body id="page-top">
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
+</html>
